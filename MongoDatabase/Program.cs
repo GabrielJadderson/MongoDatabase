@@ -1,20 +1,65 @@
 ﻿using System;
-using System.Linq.Expressions;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
-namespace MongoDatabase
+namespace MongoDBTest
 {
     internal class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            var Client = new MongoClient("mongodb://localhost:27017");
-            
-            Console.WriteLine(Client.Cluster.ClusterId.Value);
-            
-            Console.WriteLine("Works");
-            
+
+            MainAsync().Wait();
+
             Console.ReadLine();
+        }
+
+        static async Task MainAsync()
+        {
+            Console.WriteLine("Starting....");
+
+            var connectionString = "mongodb://localhost:27017";
+
+            var client = new MongoClient(connectionString);
+            Console.WriteLine("created client.");
+
+            var database = client.GetDatabase("foo");
+            Console.WriteLine("created db foo");
+
+
+            var collection = database.GetCollection<BsonDocument>("bar");
+            Console.WriteLine("created collection bar");
+
+
+            var document = new BsonDocument
+            {
+                {"firstname", BsonValue.Create("Peter")},
+                {"lastname", new BsonString("Mbanugo")},
+                { "subjects", new BsonArray(new[] {"English", "Mathematics", "Physics"}) },
+                { "class", "JSS 3" },
+                { "age", int.MaxValue }
+            };
+
+            Console.WriteLine("created document");
+
+
+            await collection.InsertOneAsync(document);
+            Console.WriteLine("inserted document");
+            //var documents = Enumerable.Range(0, 100).Select(i => new BsonDocument("counter", i));
+            //collection.InsertMany(documents);
+
+            //var count = collection.Count(new BsonDocument());
+
+            Console.WriteLine(client.Cluster.ClusterId.Value);
+            //Console.WriteLine("count: " + count);
+
+
+
+            Console.WriteLine("Started!");
         }
     }
 }
