@@ -1,0 +1,22 @@
+2018-05-14T03:04:50.609+0200 [initandlisten] MongoDB starting : pid=5260 port=27017 dbpath=data/db/ 64-bit host=JARVIS
+2018-05-14T03:04:50.610+0200 [initandlisten] db version v2.6.10
+2018-05-14T03:04:50.610+0200 [initandlisten] git version: nogitversion
+2018-05-14T03:04:50.610+0200 [initandlisten] OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
+2018-05-14T03:04:50.610+0200 [initandlisten] build info: Linux lgw01-12 3.19.0-25-generic #26~14.04.1-Ubuntu SMP Fri Jul 24 21:16:20 UTC 2015 x86_64 BOOST_LIB_VERSION=1_58
+2018-05-14T03:04:50.610+0200 [initandlisten] allocator: tcmalloc
+2018-05-14T03:04:50.610+0200 [initandlisten] options: { storage: { dbPath: "data/db/" }, systemLog: { destination: "file", path: "data/db-log/mongodb.log" } }
+2018-05-14T03:04:50.614+0200 [initandlisten] journal dir=data/db/journal
+2018-05-14T03:04:50.616+0200 [initandlisten] recover : no journal files present, no recovery needed
+2018-05-14T03:04:50.651+0200 [initandlisten] couldn't unlink socket file /tmp/mongodb-27017.sockerrno:1 Operation not permitted skipping
+2018-05-14T03:04:50.652+0200 [initandlisten] allocating new ns file data/db/local.ns, filling with zeroes...
+2018-05-14T03:04:50.693+0200 [FileAllocator] allocating new datafile data/db/local.0, filling with zeroes...
+2018-05-14T03:04:50.693+0200 [FileAllocator] creating directory data/db/_tmp
+2018-05-14T03:04:50.699+0200 [FileAllocator] done allocating datafile data/db/local.0, size: 64MB,  took 0.003 secs
+2018-05-14T03:04:50.701+0200 [initandlisten] mincore failed: errno:38 Function not implemented
+2018-05-14T03:04:50.701+0200 [initandlisten] mincore failed: errno:38 Function not implemented
+2018-05-14T03:04:50.702+0200 [initandlisten] mincore failed: errno:38 Function not implemented
+2018-05-14T03:04:50.703+0200 [initandlisten] build index on: local.startup_log properties: { v: 1, key: { _id: 1 }, name: "_id_", ns: "local.startup_log" }
+2018-05-14T03:04:50.703+0200 [initandlisten] mincore failed: errno:38 Function not implemented
+2018-05-14T03:04:50.703+0200 [initandlisten] mincore failed: errno:38 Function not implemented
+2018-05-14T03:04:50.703+0200 [initandlisten] 	 added index to empty collection
+2018-05-14T03:04:50.704+0200 [initandlisten] waiting for connections on port 27017

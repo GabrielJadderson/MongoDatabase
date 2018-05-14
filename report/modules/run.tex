@@ -1,0 +1,17 @@
+\section{Running MongoDB}\label{running-mongodb}
+
+MongoDB requires a database path. For this we use the local relative path \texttt{data/db/} to our project' root directory.
+
+
+The MongoDB server is ran in the following way:
+\begin{lstlisting}[backgroundcolor = \color{light-gray}]
+$ mongod --dbpath data/db/ --logpath data/db-log/mongodb.log &
+\end{lstlisting}
+~\\
+or by using the provided script \texttt{startMongoDB.sh}, Which contains exactly the above code.
+\begin{lstlisting}[backgroundcolor = \color{light-gray}]
+$ sudo bash startMongoDB.sh
+\end{lstlisting}
+
+We'll start a new MongoDB server in the background and the server will be directed to 127.0.0.1 or localhost on the default port of 27017.
+\texttt{{$--$}port 12345} can be given to specify a custom port. Lastly the logpath is defined because we wanted to see what was going on.

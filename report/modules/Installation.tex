@@ -1,0 +1,97 @@
+\section{Installing MongoDB}\label{installing-mongodb}
+
+Below you'll find the installation instructions on the following platforms.
+
+\begin{itemize}
+\item
+ ~\nameref{sec:wsl}
+\item
+ ~\nameref{sec:16.04}
+\item
+  ~\nameref{sec:14.04}
+\end{itemize}
+
+\leavevmode
+\newline
+\subsection{WSL(Windows Subsystem for Linux)}\label{sec:wsl}
+
+Because services are not yet supported in WSL, we must instead install mongodb version 2.6.10 \texttt{mongodb}. All we have to do is call:
+\begin{lstlisting}[backgroundcolor = \color{light-gray}]
+$ sudo apt-get install mongodb
+\end{lstlisting}
+~\\
+Alternatively an included bash script that contains exactly the above is also included:
+\begin{lstlisting}[backgroundcolor = \color{light-gray}]
+$ sudo bash install-Mongodb-on-WLS.sh
+\end{lstlisting}
+~\\
+The drawback here is that we are not using the official package provided by the MongoDB organization: \texttt{mongodb-org}.
+
+\leavevmode
+\newline
+\subsection{Ubuntu 16.04, 17.04(not tested), 18.04}\label{sec:16.04}
+
+The following was taken from here:
+\\
+\url{https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/}
+\\
+\\
+First we need to add the RSA public key to our package manager:
+\begin{lstlisting}[backgroundcolor = \color{light-gray}]
+$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
+\end{lstlisting}
+~\\
+Then we need to add to our package manager; the location of where to find the MongoDB binaries.
+\begin{lstlisting}[backgroundcolor = \color{light-gray}]
+$ echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
+\end{lstlisting}
+~\\
+We then need to reload our package manager.
+\begin{lstlisting}[backgroundcolor = \color{light-gray}]
+$ sudo apt-get update
+\end{lstlisting}
+~\\
+Then we install \texttt{mongodb-org}.
+\begin{lstlisting}[backgroundcolor = \color{light-gray}]
+$ sudo apt-get install -y mongodb-org
+\end{lstlisting}
+~\\
+Alternatively the following shell script contains all the above:
+\begin{lstlisting}[backgroundcolor = \color{light-gray}]
+$ sudo bash install-Mongodb-on-16.04-and-above.sh
+\end{lstlisting}
+~\\
+
+
+\leavevmode
+\newline
+\subsection{Ubuntu 14.04}\label{sec:14.04}
+The following was taken from here:
+\\
+\url{https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/}
+\\
+\\
+First we need to add the RSA public key to our package manager:
+\begin{lstlisting}[backgroundcolor = \color{light-gray}]
+$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
+\end{lstlisting}
+~\\
+Then we need to add to our package manager; the location of where to find the MongoDB binaries.
+\begin{lstlisting}[backgroundcolor = \color{light-gray}]
+$ echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
+\end{lstlisting}
+~\\
+We then need to reload our package manager.
+\begin{lstlisting}[backgroundcolor = \color{light-gray}]
+$ sudo apt-get update
+\end{lstlisting}
+~\\
+Then we install \texttt{mongodb-org}.
+\begin{lstlisting}[backgroundcolor = \color{light-gray}]
+$ sudo apt-get install -y mongodb-org
+\end{lstlisting}
+~\\
+Alternatively the following shell script contains all the above:
+\begin{lstlisting}[backgroundcolor = \color{light-gray}]
+$ sudo bash install-Mongodb-on-14.04.sh
+\end{lstlisting}

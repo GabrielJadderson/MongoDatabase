@@ -1,0 +1,105 @@
+\documentclass[a4paper,10pt]{article}
+
+
+%cmap has to be loaded before any font package (such as cfr-lm)
+\usepackage{cmap}
+%\usepackage{enumitem} %small, used for custom item listings
+
+\usepackage{standalone}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx, ltablex, caption}
+
+\usepackage{hyperref}
+
+\usepackage[nottoc]{tocbibind}
+
+%\usepackage{booktabs}
+
+%---- graphics ----
+\usepackage{graphicx}
+\graphicspath{{./figs/}}
+\DeclareGraphicsExtensions{.png}
+
+\usepackage{titletoc}
+\usepackage{minitoc}
+\usepackage{wrapfig}
+\usepackage{array}
+
+%------------------------------------------------------ packages ---------------------------------
+%----- core packages -----
+\usepackage{import}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[danish,english]{babel}
+\usepackage{lmodern}
+\usepackage[babel=true]{microtype}
+
+\usepackage[left=3cm,right=3cm,top=2.7cm,bottom=2.7cm]{geometry} % page settings
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+
+\usepackage{float}
+\usepackage{fancyvrb}
+\usepackage{comment}
+\usepackage{hyperref}
+\usepackage[nottoc]{tocbibind}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,positioning,fit,matrix}
+
+
+\setlength{\parindent}{0pt}
+%\setlength{\parindent}{0mm}
+\setlength{\parskip}{1ex}
+
+\definecolor{light-gray}{gray}{0.95} %the shade of grey that stack exchange uses
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{listings}
+\lstset{language=Python,
+  basicstyle=\ttfamily\lst@ifdisplaystyle\footnotesize\fi,%\fontfamily{pzc}\selectfont,%
+  stringstyle=\ttfamily,
+  commentstyle=\ttfamily,
+  showstringspaces=false,
+  %frame=lines,
+  %backgroundcolor = \color{light-gray},
+  breaklines=true, tabsize=2,
+  extendedchars=true,inputencoding=utf8
+}
+%\lstavoidwhitepre
+
+
+\hypersetup{
+    pdfnewwindow=true,      % links in new PDF window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=black,          % color of internal links (change box color with linkbordercolor)
+    citecolor=cyan,        % color of links to bibliography
+    urlcolor=blue           % color of external links
+}
+
+
+%------------------------------------------------------ packages ---------------------------------
+%\pagenumbering{arabic}
+%------ FirstPage ------
+\import{./modules/}{firstpage.tex}
+%----------------------------------------------------------------------------------------------------------%
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+%\listoffigures
+\newpage
+
+\import{./modules/}{installation.tex}
+\import{./modules/}{run.tex}
+%------ Content ------
+%\import{./modules/}{content.tex}
+%----------------------------------------------------------------------------------------------------------%
+
+
+\end{document}
