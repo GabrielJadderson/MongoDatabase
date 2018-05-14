@@ -2,3 +2,4 @@
 MongoDatabase/obj/
 MongoDatabase/bin/
 packages/
+data/db/*
