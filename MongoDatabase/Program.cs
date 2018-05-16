@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
-namespace MongoDB
+namespace MongoDBProject
 {
     internal class Program
     {
@@ -25,9 +25,7 @@ namespace MongoDB
 
             var database = client.GetDatabase("foo");
 
-
             var collection = database.GetCollection<BsonDocument>("bar");
-
 
             var document = new BsonDocument
             {
@@ -37,8 +35,6 @@ namespace MongoDB
                 { "class", "JSS 3" },
                 { "age", int.MaxValue }
             };
-
-
 
             await collection.InsertOneAsync(document);
             //var documents = Enumerable.Range(0, 100).Select(i => new BsonDocument("counter", i));

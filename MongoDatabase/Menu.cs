@@ -1,12 +1,10 @@
 ﻿using System;
 
-namespace MongoDB
+namespace MongoDBProject
 {
     public class Menu : EasyConsole.Program
-    {
-        
-        
-        
+    {        
+           
      
         public Menu() : base("EasyConsole Demo", breadcrumbHeader: true)
         {

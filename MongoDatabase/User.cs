@@ -1,4 +1,4 @@
-﻿namespace MongoDB
+﻿namespace MongoDBProject
 {
     public class User
     {
