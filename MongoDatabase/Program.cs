@@ -20,19 +20,14 @@ namespace MongoDBTest
 
         static async Task MainAsync()
         {
-            Console.WriteLine("Starting....");
-
             var connectionString = "mongodb://localhost:27017";
 
             var client = new MongoClient(connectionString);
-            Console.WriteLine("created client.");
 
             var database = client.GetDatabase("foo");
-            Console.WriteLine("created db foo");
 
 
             var collection = database.GetCollection<BsonDocument>("bar");
-            Console.WriteLine("created collection bar");
 
 
             var document = new BsonDocument
@@ -44,22 +39,15 @@ namespace MongoDBTest
                 { "age", int.MaxValue }
             };
 
-            Console.WriteLine("created document");
 
 
             await collection.InsertOneAsync(document);
-            Console.WriteLine("inserted document");
             //var documents = Enumerable.Range(0, 100).Select(i => new BsonDocument("counter", i));
             //collection.InsertMany(documents);
 
-            //var count = collection.Count(new BsonDocument());
-
-            Console.WriteLine(client.Cluster.ClusterId.Value);
-            //Console.WriteLine("count: " + count);
-
-
-
-            Console.WriteLine("Started!");
+            var count = collection.Count(new BsonDocument());
+            
+            new Menu();
         }
     }
 }
