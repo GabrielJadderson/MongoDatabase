@@ -1,4 +1,4 @@
-﻿namespace MongoDBTest
+﻿namespace MongoDB
 {
     public class User
     {

@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
-namespace MongoDBTest
+namespace MongoDB
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-
             MainAsync().Wait();
 
             Console.ReadLine();

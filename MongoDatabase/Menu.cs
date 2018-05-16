@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MongoDBTest
+namespace MongoDB
 {
     public class Menu : EasyConsole.Program
     {
@@ -19,7 +19,7 @@ namespace MongoDBTest
             AddPage(new Page1B(this));
             AddPage(new Page2(this));
 
-            SetPage<MainPage>();
+            SetPage<MainPage>();    
             */
             Intro();
     
