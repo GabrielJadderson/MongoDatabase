@@ -2,4 +2,9 @@
 MongoDatabase/obj/
 MongoDatabase/bin/
 packages/
-data/db/*
+data/db/*.0
+data/db/*.ns
+data/db/*.lock
+data/db/journal
+data/db/_tmp
+.vs

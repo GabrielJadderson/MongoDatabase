@@ -1,23 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDBProject.ConsoleInterface;
 
 namespace MongoDBProject
 {
-    internal class Program
+    internal class MainProgram
     {
         static void Main(string[] args)
         {
-            MainAsync().Wait();
+            start();
 
             Console.ReadLine();
         }
 
-        static async Task MainAsync()
+        static void start()
         {
             var connectionString = "mongodb://localhost:27017";
 
@@ -36,13 +33,13 @@ namespace MongoDBProject
                 { "age", int.MaxValue }
             };
 
-            await collection.InsertOneAsync(document);
+            collection.InsertOne(document);
             //var documents = Enumerable.Range(0, 100).Select(i => new BsonDocument("counter", i));
             //collection.InsertMany(documents);
 
             var count = collection.Count(new BsonDocument());
-            
-            new Menu();
+
+            new ConsoleMenu();
         }
     }
 }
