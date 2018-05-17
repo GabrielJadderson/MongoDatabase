@@ -1,5 +1,8 @@
 ﻿using System;
+using MongoDatabase;
+using MongoDatabase.DBElements;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using MongoDBProject.ConsoleInterface;
 
@@ -9,37 +12,28 @@ namespace MongoDBProject
     {
         static void Main(string[] args)
         {
-            start();
-
-            Console.ReadLine();
+            ConfigureAndEstablishDBConnection();
+            new ConsoleMenu();
         }
 
-        static void start()
+
+        public static void ConfigureAndEstablishDBConnection()
         {
-            var connectionString = "mongodb://localhost:27017";
+            Globals.Client = new MongoClient(Globals.ConnectionString);
 
-            var client = new MongoClient(connectionString);
+            IMongoDatabase database = Globals.Client.GetDatabase("Bartender");
 
-            var database = client.GetDatabase("foo");
+            Globals.UserCollection = database.GetCollection<BsonDocument>("Users");
+            Globals.CombinationCollection = database.GetCollection<BsonDocument>("Combinations");
+            Globals.RatingCollection = database.GetCollection<BsonDocument>("Ratings");
+        }
 
-            var collection = database.GetCollection<BsonDocument>("bar");
 
-            var document = new BsonDocument
-            {
-                {"firstname", BsonValue.Create("Peter")},
-                {"lastname", new BsonString("Mbanugo")},
-                { "subjects", new BsonArray(new[] {"English", "Mathematics", "Physics"}) },
-                { "class", "JSS 3" },
-                { "age", int.MaxValue }
-            };
-
-            collection.InsertOne(document);
-            //var documents = Enumerable.Range(0, 100).Select(i => new BsonDocument("counter", i));
-            //collection.InsertMany(documents);
-
-            var count = collection.Count(new BsonDocument());
-
-            new ConsoleMenu();
+        public void registerClasses()
+        {
+            BsonClassMap.RegisterClassMap<User>();
+            BsonClassMap.RegisterClassMap<Combination>();
+            BsonClassMap.RegisterClassMap<Rating>();
         }
     }
 }

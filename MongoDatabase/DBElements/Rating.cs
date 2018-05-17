@@ -8,9 +8,12 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace MongoDatabase.DBElements
 {
-    public class User
+    public class Rating
     {
-        [BsonId] public ObjectId Name { get; set; } //name will be our id, also "BsonId" makes the id Indexed!
-        [BsonElement("ratings")] public List<Rating> Ratings { get; set; }
+        [BsonId] public ObjectId RatingId;
+        [BsonId] public ObjectId theRatedCoombination;
+        [BsonId] public ObjectId theUser;
+        public int rating = 0;
+        public string comment;
     }
 }

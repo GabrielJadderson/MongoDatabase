@@ -1,0 +1,7 @@
+\section{Implementation}
+
+
+When you Insert a document, the driver checks to see if the Id member has been assigned a value
+and, if not, generates a new unique value for it. Since the Id member can be of any type, the driver requires
+the help of an IIdGenerator to check whether the Id has a value assigned to it and to generate a new value if necessary.
+The driver has the following Id generators built-in:

@@ -10,7 +10,7 @@ namespace MongoDatabase.ConsoleInterface.Pages
                 new Option("Create Combination", () => program.NavigateTo<pSignUp>()),
                 new Option("Search Combinations", () => program.NavigateTo<pLogin>()),
                 new Option("List My Ratings", () => program.NavigateTo<pLogin>()),
-                new Option("List all Ratings", () => program.NavigateTo<pLogin>()),
+                new Option("List My Ratings", () => program.NavigateTo<pLogin>()),
                 new Option("List all Ratings", () => program.NavigateTo<pLogin>()))
         {
 

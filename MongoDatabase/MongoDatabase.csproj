@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleInterface\ConsoleMenu.cs" />
+    <Compile Include="DBElements\Rating.cs" />
     <Compile Include="DBElements\Combination.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="Operations.cs" />
