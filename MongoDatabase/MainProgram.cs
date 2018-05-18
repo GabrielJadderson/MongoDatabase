@@ -1,19 +1,15 @@
 ﻿using System;
-using MongoDatabase;
 using MongoDatabase.DBElements;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using MongoDBProject.ConsoleInterface;
 
-namespace MongoDBProject
+namespace MongoDatabase
 {
     internal class MainProgram
     {
         static void Main(string[] args)
         {
             ConfigureAndEstablishDBConnection();
-
             new ConsoleMenu();
         }
 
@@ -29,12 +25,5 @@ namespace MongoDBProject
             Globals.RatingCollection = database.GetCollection<Rating>("Ratings");
         }
 
-
-        public void registerClasses()
-        {
-            BsonClassMap.RegisterClassMap<User>();
-            BsonClassMap.RegisterClassMap<Combination>();
-            BsonClassMap.RegisterClassMap<Rating>();
-        }
     }
 }

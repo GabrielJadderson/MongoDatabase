@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
+﻿using MongoDB.Bson.Serialization.Attributes;
 
 namespace MongoDatabase.DBElements
 {
@@ -12,5 +10,15 @@ namespace MongoDatabase.DBElements
         [BsonElement("garnish")] public string Garnish { get; set; }
 
         [BsonElement("accumulative_rating")] public int accumulativeRating { get; set; }
+
+
+        public override string ToString()
+        {
+            return "CombinationID: " + CombinationID + "\n" +
+                   "Gin: " + Gin + "\n" +
+                   "Tonic: " + Tonic + "\n" +
+                   "Garnish: " + Garnish + "\n" +
+                   "accumulativeRating: " + accumulativeRating + "\n";
+        }
     }
 }

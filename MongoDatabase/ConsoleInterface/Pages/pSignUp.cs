@@ -18,22 +18,29 @@ namespace MongoDatabase.ConsoleInterface.Pages
 
             Globals.Username = Input.ReadString("Enter your Username: ");
 
-            if (Operations.login(Globals.Username))
+            if (Operations.Login(Globals.Username))
             {
                 Program.NavigateTo<MainMenu>();
+                pLogin.didLogIn = true;
             }
             else
             {
-                if (Operations.createUser(Globals.Username))
+                if (Operations.CreateUser(Globals.Username))
                 {
                     Program.NavigateTo<MainMenu>();
+                    pLogin.didLogIn = true;
                 }
                 else
                     Output.WriteLine(ConsoleColor.Red, "Failed to signup {0}.", Globals.Username);
             }
 
-            Input.ReadString("Press [Enter] to navigate home");
-            Program.NavigateHome();
+            if (pLogin.didLogIn)
+                Program.NavigateTo<MainMenu>();
+            else
+            {
+                Input.ReadString("Press [Enter] to navigate home");
+                Program.NavigateHome();
+            }
         }
     }
 }

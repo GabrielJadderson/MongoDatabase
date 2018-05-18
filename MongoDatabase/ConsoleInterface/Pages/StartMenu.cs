@@ -1,4 +1,5 @@
-﻿using EasyConsole;
+﻿using System;
+using EasyConsole;
 using MongoDBProject.ConsoleInterface;
 
 namespace MongoDatabase.ConsoleInterface.Pages
@@ -8,7 +9,8 @@ namespace MongoDatabase.ConsoleInterface.Pages
         public StartMenu(Program program)
             : base("Start Menu", program,
                 new Option("Sign Up", () => program.NavigateTo<pSignUp>()),
-                new Option("Login", () => program.NavigateTo<pLogin>()))
+                new Option("Log in", () => program.NavigateTo<pLogin>()),
+                new Option("Exit", () => Environment.Exit(0)))
         {
 
         }

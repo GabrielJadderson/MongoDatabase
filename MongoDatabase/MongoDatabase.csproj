@@ -61,6 +61,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleInterface\ConsoleMenu.cs" />
+    <Compile Include="ConsoleInterface\Pages\pGetSortedRatings.cs" />
+    <Compile Include="ConsoleInterface\Pages\pAllCombinations.cs" />
+    <Compile Include="ConsoleInterface\Pages\pAllRatings.cs" />
+    <Compile Include="ConsoleInterface\Pages\pMarkRating.cs" />
+    <Compile Include="ConsoleInterface\Pages\pCreateRating.cs" />
+    <Compile Include="ConsoleInterface\Pages\pMyRatings.cs" />
+    <Compile Include="ConsoleInterface\Pages\pSearchCombination.cs" />
     <Compile Include="ConsoleInterface\Pages\pCreateCombination.cs" />
     <Compile Include="DBElements\Rating.cs" />
     <Compile Include="DBElements\Combination.cs" />

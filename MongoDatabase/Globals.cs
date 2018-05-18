@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MongoDatabase.DBElements;
-using MongoDB.Bson;
+﻿using MongoDatabase.DBElements;
 using MongoDB.Driver;
 
 namespace MongoDatabase

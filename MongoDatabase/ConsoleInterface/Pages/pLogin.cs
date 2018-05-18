@@ -7,6 +7,8 @@ namespace MongoDatabase.ConsoleInterface.Pages
 {
     public class pLogin : Page
     {
+        public static volatile bool didLogIn = false;
+
         public pLogin(Program program) : base("Login Page", program)
         {
         }
@@ -18,13 +20,21 @@ namespace MongoDatabase.ConsoleInterface.Pages
 
             Globals.Username = Input.ReadString("Enter your Username: ");
 
-            if (Operations.login(Globals.Username))
+            if (Operations.Login(Globals.Username))
+            {
                 Program.NavigateTo<MainMenu>();
+                didLogIn = true;
+            }
             else
                 Output.WriteLine(ConsoleColor.White, "The Username {0} does not exist.", Globals.Username);
 
-            Input.ReadString("Press [Enter] to navigate home");
-            Program.NavigateHome();
+            if (didLogIn)
+                Program.NavigateTo<MainMenu>();
+            else
+            {
+                Input.ReadString("Press [Enter] to navigate home");
+                Program.NavigateHome();
+            }
         }
     }
 }

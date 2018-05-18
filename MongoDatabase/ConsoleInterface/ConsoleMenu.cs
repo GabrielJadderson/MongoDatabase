@@ -31,11 +31,21 @@ namespace MongoDBProject.ConsoleInterface
 
         public void ConfigPages()
         {
-            AddPage(new StartMenu(this));
             AddPage(new MainMenu(this));
+            AddPage(new StartMenu(this));
+
             AddPage(new pSignUp(this));
             AddPage(new pLogin(this));
-            AddPage(new InputPage(this));
+
+            AddPage(new pCreateCombination(this));
+            AddPage(new pSearchCombination(this));
+            AddPage(new pAllCombinations(this));
+
+            AddPage(new pCreateRating(this));
+            AddPage(new pMyRatings(this));
+            AddPage(new pAllRatings(this));
+            AddPage(new pMarkRating(this));
+            AddPage(new pGetSortedRatings(this));
 
             SetPage<StartMenu>();
         }

@@ -8,18 +8,21 @@ namespace MongoDatabase.ConsoleInterface.Pages
     {
         public MainMenu(Program program)
             : base("Main Menu", program,
-                new Option("Create Combination", () => program.NavigateTo<pSignUp>()),
-                new Option("Search Combinations", () => program.NavigateTo<pLogin>()),
-                new Option("List My Ratings", () => program.NavigateTo<pLogin>()),
-                new Option("List My Ratings", () => program.NavigateTo<pLogin>()),
-                new Option("List all Ratings", () => program.NavigateTo<pLogin>()))
+                new Option("Create Combination", () => program.NavigateTo<pCreateCombination>()), //done
+                new Option("Search Combinations", () => program.NavigateTo<pSearchCombination>()), //done
+                new Option("List All Combinations", () => program.NavigateTo<pAllCombinations>()), //done
+                new Option("------------------------------------", () => program.NavigateTo<MainMenu>()),
+                new Option("Create Rating", () => program.NavigateTo<pCreateRating>()), //done
+                new Option("List My Ratings", () => program.NavigateTo<pMyRatings>()), //done
+                new Option("List All Ratings", () => program.NavigateTo<pAllRatings>()), //done
+                new Option("Mark Rating as Helpful", () => program.NavigateTo<pMarkRating>()), //done
+                new Option("Get Ratings sorted by HelpfulMarks (descending order)", () => program.NavigateTo<pGetSortedRatings>()), //done
+                new Option("------------------------------------", () => program.NavigateTo<MainMenu>()),
+                new Option("Log out", () => program.NavigateHome()),
+                new Option("Exit", () => Environment.Exit(0)))
         {
 
         }
-
-
-
-
 
 
         public override void Display()
@@ -31,5 +34,7 @@ namespace MongoDatabase.ConsoleInterface.Pages
 
             base.Display();
         }
+
+
     }
 }
