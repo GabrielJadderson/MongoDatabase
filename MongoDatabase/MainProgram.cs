@@ -13,6 +13,7 @@ namespace MongoDBProject
         static void Main(string[] args)
         {
             ConfigureAndEstablishDBConnection();
+
             new ConsoleMenu();
         }
 
@@ -23,9 +24,9 @@ namespace MongoDBProject
 
             IMongoDatabase database = Globals.Client.GetDatabase("Bartender");
 
-            Globals.UserCollection = database.GetCollection<BsonDocument>("Users");
-            Globals.CombinationCollection = database.GetCollection<BsonDocument>("Combinations");
-            Globals.RatingCollection = database.GetCollection<BsonDocument>("Ratings");
+            Globals.UserCollection = database.GetCollection<User>("Users");
+            Globals.CombinationCollection = database.GetCollection<Combination>("Combinations");
+            Globals.RatingCollection = database.GetCollection<Rating>("Ratings");
         }
 
 

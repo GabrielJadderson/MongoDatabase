@@ -10,7 +10,8 @@ namespace MongoDatabase.DBElements
 {
     public class User
     {
-        [BsonId] public ObjectId Name { get; set; } //name will be our id, also "BsonId" makes the id Indexed!
+        [BsonId] public ObjectId userID { get; set; }
+        [BsonElement("name")] public string Name { get; set; }
         [BsonElement("ratings")] public List<Rating> Ratings { get; set; }
     }
 }

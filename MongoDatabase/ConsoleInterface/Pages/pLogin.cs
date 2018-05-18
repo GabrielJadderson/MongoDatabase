@@ -21,9 +21,11 @@ namespace MongoDatabase.ConsoleInterface.Pages
             if (Operations.login(Globals.Username))
             {
                 Output.WriteLine(ConsoleColor.Cyan, Globals.Username);
+                Output.WriteLine(ConsoleColor.Cyan, "Welcome");
 
-                Program.SetPage<MainMenu>();
-                Program.NavigateHome();
+                // Program.SetPage<MainMenu>();
+                // Program.NavigateHome();
+                Environment.Exit(0);
                 return;
             }
             else

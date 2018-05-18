@@ -11,8 +11,9 @@ namespace MongoDatabase.DBElements
     public class Rating
     {
         [BsonId] public ObjectId RatingId;
-        [BsonId] public ObjectId theRatedCoombination;
-        [BsonId] public ObjectId theUser;
+
+        [BsonElement("combination")] public ObjectId theRatedCoombination;
+        [BsonElement("user")] public ObjectId theUser;
         public int rating = 0;
         public string comment;
     }
