@@ -6,6 +6,7 @@ using MongoDatabase;
 using MongoDatabase.DBElements;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Shared;
 
 namespace MongoDBProject
 {
@@ -29,7 +30,7 @@ namespace MongoDBProject
             {
                 if (username.Length > 1 && username != null)
                 {
-                    var user = new User { userID = new ObjectId(), Name = username, Ratings = null };
+                    var user = new User { Name = username };
                     Globals.UserCollection.InsertOne(user);
                     succeed = true;
                 }
@@ -56,24 +57,13 @@ namespace MongoDBProject
                 if (username.Length > 1 && username != null)
                 {
                     var result = Globals.UserCollection.Find(x => x.Name == username).ToList();
-
-                    foreach (var user in result)
-                    {
-                        Console.WriteLine("YEAH ME IS : " + user.Name);
-                    }
-
                     if (result.Count > 0)
                         succeed = true;
                     else
                         succeed = false;
                 }
             }
-            catch (Exception e)
-            {
-                succeed = false;
-                Console.WriteLine(e);
-            }
-
+            catch (Exception e) { succeed = false; }
             return succeed;
         }
 
@@ -87,41 +77,33 @@ namespace MongoDBProject
         public bool createCombination(string gin, string tonic, string garnish)
         {
             bool succeed = false;
-            //Create a combination of gin and tonic
             try
             {
                 if (gin != null && tonic != null && garnish != null)
                 {
                     var combination = new Combination
                     {
-                        CombinationID = new ObjectId(garnish + gin + tonic),
+                        CombinationID = garnish + gin + tonic,
                         Garnish = garnish,
                         Gin = gin,
                         Tonic = tonic,
-                        accumulativeRating = 0,
-                        ratings = new List<ObjectId>()
+                        accumulativeRating = 0
                     };
-
                     Globals.CombinationCollection.InsertOne(combination);
                     succeed = true;
                 }
             }
-            catch (Exception e)
-            {
-                succeed = false;
-                Console.WriteLine(e);
-            }
-
+            catch (Exception e) { succeed = false; }
             return succeed;
         }
 
         public static List<string> searchCombination()
         {
-            //Search a combination of gin and tonic
+
             return null;
         }
 
-        public static void createRatingEvaluation(int rating, string evaluationText)
+        public static void createRatingEvaluation(int rating, string comment)
         {
             //Create/Insert a rating or evaluation of a combination of gin an tonic
             if (rating < 0 || rating > 5)

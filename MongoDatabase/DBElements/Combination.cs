@@ -6,13 +6,11 @@ namespace MongoDatabase.DBElements
 {
     public class Combination
     {
-        [BsonId] public ObjectId CombinationID { get; set; }
+        [BsonId] public string CombinationID { get; set; }
         [BsonElement("gin")] public string Gin { get; set; }
         [BsonElement("tonic")] public string Tonic { get; set; }
         [BsonElement("garnish")] public string Garnish { get; set; }
 
-        [BsonElement("ratings")] public List<ObjectId> ratings { get; set; } //points to rating id
         [BsonElement("accumulative_rating")] public int accumulativeRating { get; set; }
-
     }
 }

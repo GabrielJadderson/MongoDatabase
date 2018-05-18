@@ -10,8 +10,6 @@ namespace MongoDatabase.DBElements
 {
     public class User
     {
-        [BsonId] public ObjectId userID { get; set; }
-        [BsonElement("name")] public string Name { get; set; }
-        [BsonElement("ratings")] public List<Rating> Ratings { get; set; }
+        [BsonId] public string Name { get; set; }
     }
 }
