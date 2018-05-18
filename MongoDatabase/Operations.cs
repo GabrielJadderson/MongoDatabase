@@ -77,10 +77,42 @@ namespace MongoDBProject
             return succeed;
         }
 
-        public bool createCombination()
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="gin"></param>
+        /// <param name="tonic"></param>
+        /// <param name="garnish"></param>
+        /// <returns></returns>
+        public bool createCombination(string gin, string tonic, string garnish)
         {
+            bool succeed = false;
             //Create a combination of gin and tonic
-            return false;
+            try
+            {
+                if (gin != null && tonic != null && garnish != null)
+                {
+                    var combination = new Combination
+                    {
+                        CombinationID = new ObjectId(garnish + gin + tonic),
+                        Garnish = garnish,
+                        Gin = gin,
+                        Tonic = tonic,
+                        accumulativeRating = 0,
+                        ratings = new List<ObjectId>()
+                    };
+
+                    Globals.CombinationCollection.InsertOne(combination);
+                    succeed = true;
+                }
+            }
+            catch (Exception e)
+            {
+                succeed = false;
+                Console.WriteLine(e);
+            }
+
+            return succeed;
         }
 
         public static List<string> searchCombination()

@@ -9,8 +9,6 @@ namespace MongoDatabase.ConsoleInterface.Pages
     {
         public pSignUp(Program program) : base("Sign Up Page", program)
         {
-
-
         }
 
         public override void Display()
