@@ -19,20 +19,9 @@ namespace MongoDatabase.ConsoleInterface.Pages
             Globals.Username = Input.ReadString("Enter your Username: ");
 
             if (Operations.login(Globals.Username))
-            {
-                Output.WriteLine(ConsoleColor.Cyan, Globals.Username);
-                Output.WriteLine(ConsoleColor.Cyan, "Welcome");
-
-                // Program.SetPage<MainMenu>();
-                // Program.NavigateHome();
-                Environment.Exit(0);
-                return;
-            }
+                Program.NavigateTo<MainMenu>();
             else
-            {
                 Output.WriteLine(ConsoleColor.White, "The Username {0} does not exist.", Globals.Username);
-
-            }
 
             Input.ReadString("Press [Enter] to navigate home");
             Program.NavigateHome();

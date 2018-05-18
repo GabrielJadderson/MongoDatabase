@@ -12,9 +12,10 @@ namespace MongoDatabase.DBElements
     {
         [BsonId] public ObjectId RatingId;
 
-        [BsonElement("combination")] public ObjectId theRatedCoombination;
-        [BsonElement("user")] public ObjectId theUser;
-        public int rating = 0;
-        public string comment;
+        [BsonElement("combination")] public ObjectId theRatedCoombination { get; set; }
+        [BsonElement("user")] public ObjectId theUser { get; set; }
+
+        public int rating { get; set; }
+        public string comment { get; set; }
     }
 }

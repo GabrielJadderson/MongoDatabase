@@ -1,4 +1,5 @@
-﻿using EasyConsole;
+﻿using System;
+using EasyConsole;
 using MongoDBProject.ConsoleInterface;
 
 namespace MongoDatabase.ConsoleInterface.Pages
@@ -24,6 +25,10 @@ namespace MongoDatabase.ConsoleInterface.Pages
         public override void Display()
         {
             ConsoleMenu.Intro();
+
+            Output.WriteLine(ConsoleColor.Green, "               Welcome {0}", Globals.Username);
+            Output.WriteLine(ConsoleColor.Green, "");
+
             base.Display();
         }
     }

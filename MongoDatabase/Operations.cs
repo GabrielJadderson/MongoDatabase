@@ -11,29 +11,36 @@ namespace MongoDBProject
 {
     public class Operations
     {
-        //constructor
+
         public Operations()
         {
             Console.WriteLine("Starting operations");
         }
 
+        /// <summary>
+        /// Create a new User with the given username
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         public static bool createUser(String username)
         {
+            bool succeed = false;
             try
             {
                 if (username.Length > 1 && username != null)
                 {
                     var user = new User { userID = new ObjectId(), Name = username, Ratings = null };
                     Globals.UserCollection.InsertOne(user);
-                    return true;
+                    succeed = true;
                 }
             }
             catch (Exception e)
             {
+                succeed = false;
                 Console.WriteLine(e);
             }
 
-            return false;
+            return succeed;
         }
 
         /// <summary>
@@ -43,6 +50,7 @@ namespace MongoDBProject
         /// <returns> true if the username is found and thus "authenticated", false if no user exists with that name.</returns>
         public static bool login(string username)
         {
+            bool succeed = false;
             try
             {
                 if (username.Length > 1 && username != null)
@@ -51,19 +59,22 @@ namespace MongoDBProject
 
                     foreach (var user in result)
                     {
-                        Console.WriteLine(user.Name);
+                        Console.WriteLine("YEAH ME IS : " + user.Name);
                     }
 
-                    Console.WriteLine("found the user");
-                    return true;
+                    if (result.Count > 0)
+                        succeed = true;
+                    else
+                        succeed = false;
                 }
             }
             catch (Exception e)
             {
+                succeed = false;
                 Console.WriteLine(e);
             }
 
-            return false;
+            return succeed;
         }
 
         public bool createCombination()
